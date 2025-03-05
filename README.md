@@ -1,8 +1,10 @@
+En guise d'introduction à Springboot, voici les étapes qui nous ont permis de mettre en place notre projet, et d'implementer les premieres fonctionnalités.
+
 Installation de Spring Boot sur IntelliJ Ultimate
 
 Spring Boot est un framework Java permettant de simplifier le développement d’applications basées sur Spring. IntelliJ IDEA Ultimate offre un support avancé pour Spring Boot, facilitant la gestion des dépendances, le développement, et le débogage.
 
-Création d’un nouveau projet Maven avec OpenJDK 21, en ajoutant les dépendances Spring Web et Lombok pour un serveur local Tomcat
+Création d’un nouveau projet Maven avec OpenJDK 21, en ajoutant les dépendances Spring Web et Lombok
 
 Maven est un outil de gestion de projet et de dépendances en Java. Lors de la création d’un projet, OpenJDK 21 est utilisé comme environnement d’exécution, Spring Web permet de développer des applications web et API, tandis que Lombok réduit le code boilerplate en générant automatiquement les getters, setters et autres méthodes courantes. Tomcat, intégré à Spring Boot, sert de serveur local.
 
