@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Etat {
+public class Etiquette {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;

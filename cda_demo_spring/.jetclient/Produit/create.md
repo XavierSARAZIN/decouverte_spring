@@ -9,9 +9,9 @@ id = 'c090859f-69b2-4df3-b1fb-2ca9e9724ada'
 type = 'JSON'
 raw = '''
 {
-  "nom" : "fanta",
+  "nom" : "fata",
   "description" : "blablabla",
-  "prix" : 1.2,
-  "code" : "ftn"
+  "prix" : 1,
+  "code" : "fln"
 }'''
 ```
