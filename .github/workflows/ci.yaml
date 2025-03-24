@@ -13,4 +13,3 @@ jobs:
           java-version: '17'
       - name: run tests
         run: mvn clean test
-      
