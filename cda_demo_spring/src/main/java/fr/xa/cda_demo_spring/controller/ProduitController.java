@@ -1,6 +1,7 @@
 package fr.xa.cda_demo_spring.controller;
 
 import fr.xa.cda_demo_spring.dao.ProduitDao;
+import fr.xa.cda_demo_spring.model.Etat;
 import fr.xa.cda_demo_spring.model.Produit;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,13 @@ public class ProduitController {
 
     @PostMapping("/produit")
     public ResponseEntity<Produit> save(@RequestBody @Valid Produit produit) {
+        if (produit.getEtat() == null) {
+            Etat etatNeuf = new Etat();
+            etatNeuf.setId(1);
+            produit.setEtat(etatNeuf);
+        }
+
+        produit.setId(null);
         produitDao.save(produit);
 
         return new ResponseEntity<>(produit, HttpStatus.CREATED);

@@ -31,6 +31,7 @@ public class EtatController {
 
     @GetMapping("/etats")
     public List<Etat> getAll() {
+
         return etatDao.findAll();
     }
 
