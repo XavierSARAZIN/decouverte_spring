@@ -1,16 +1,20 @@
-INSERT INTO etat (nom)
-VALUES ('neuf'),
-       ('occasion'),
-       ('bon état'),
-       ('reconditionné'),
-       ('très bon état');
+INSERT INTO utilisateur(email, password, admin)
+VALUES ("a@a.com", "$2a$10$yS1gwOVFsyzXlfERcqbSXuhOz9Imew/AAMWL1fJd/z.SiQpyoEw0O", 1),
+       ("b@b.com", "$2a$10$yS1gwOVFsyzXlfERcqbSXuhOz9Imew/AAMWL1fJd/z.SiQpyoEw0O", 0);
 
-INSERT INTO etiquette (nom, couleur)
-VALUES ('Promo', 'green'),
-       ('Soldes', 'red'),
-       ('Déstockage', 'grey'),
-       ('Fin de série', 'yellow'),
-       ('Dernière chance', 'pink');
+INSERT INTO etat (id, nom)
+VALUES (1, 'neuf'),
+       (2, 'occasion'),
+       (3, 'bon état'),
+       (4, 'reconditionné'),
+       (5, 'très bon état');
+
+INSERT INTO etiquette (id, nom, couleur)
+VALUES (1, 'Promo', 'green'),
+       (2, 'Soldes', 'red'),
+       (3, 'Déstockage', 'grey'),
+       (4, 'Fin de série', 'yellow'),
+       (5, 'Dernière chance', 'pink');
 
 INSERT INTO produit (id, nom, code, description, prix, etat_id)
 VALUES (1, 'Asus Zenbook A14', 'aza14', 'Ordinateur portable léger avec processeur Snapdragon', 1299.99, 1),
