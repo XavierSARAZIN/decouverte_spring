@@ -21,7 +21,6 @@ public class CdaDemoSpringApplication {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
 
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

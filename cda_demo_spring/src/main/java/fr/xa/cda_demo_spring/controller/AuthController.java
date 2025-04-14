@@ -4,6 +4,7 @@ import fr.xa.cda_demo_spring.dao.UtilisateurDao;
 import fr.xa.cda_demo_spring.model.Utilisateur;
 import fr.xa.cda_demo_spring.security.AppUserDetails;
 import fr.xa.cda_demo_spring.security.JwtUtils;
+import fr.xa.cda_demo_spring.security.Role;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,11 +37,11 @@ public class AuthController {
 
     @PostMapping("/inscription")
     public ResponseEntity<Utilisateur> inscription(@RequestBody @Valid Utilisateur utilisateur) {
-        utilisateur.setAdmin(false);
+        utilisateur.setRole(Role.UTILISATEUR);
         utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
         utilisateurDao.save(utilisateur);
         utilisateur.setPassword(null);
-        return new ResponseEntity(utilisateur, HttpStatus.CREATED);
+        return new ResponseEntity<>(utilisateur, HttpStatus.CREATED);
     }
 
     @PostMapping("/connexion")

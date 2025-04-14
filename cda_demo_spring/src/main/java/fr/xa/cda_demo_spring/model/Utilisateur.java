@@ -1,5 +1,6 @@
 package fr.xa.cda_demo_spring.model;
 
+import fr.xa.cda_demo_spring.security.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -24,5 +25,7 @@ public class Utilisateur {
     @Column(nullable = false)
     protected String password;
 
-    protected boolean admin;
+    @Enumerated(EnumType.STRING)
+    @Column(columnDefinition = "ENUM('UTILISATEUR', 'REDACTEUR', 'ADMINISTRATEUR')")
+    protected Role role;
 }

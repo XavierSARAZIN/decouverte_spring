@@ -3,6 +3,7 @@ package fr.xa.cda_demo_spring.controller;
 import fr.xa.cda_demo_spring.dao.ProduitDao;
 import fr.xa.cda_demo_spring.model.Etat;
 import fr.xa.cda_demo_spring.model.Produit;
+import fr.xa.cda_demo_spring.security.IsUtilisateur;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,6 +33,7 @@ public class ProduitController {
     }
 
     @GetMapping("/produits")
+    @IsUtilisateur
     public List<Produit> getAll() {
         return produitDao.findAll();
     }
