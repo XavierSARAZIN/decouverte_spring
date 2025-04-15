@@ -3,8 +3,8 @@ package fr.xa.cda_demo_spring.controller;
 import fr.xa.cda_demo_spring.dao.UtilisateurDao;
 import fr.xa.cda_demo_spring.model.Utilisateur;
 import fr.xa.cda_demo_spring.security.AppUserDetails;
-import fr.xa.cda_demo_spring.security.JwtUtils;
 import fr.xa.cda_demo_spring.security.Role;
+import fr.xa.cda_demo_spring.security.SecuriteUtils;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,14 +24,14 @@ public class AuthController {
     protected UtilisateurDao utilisateurDao;
     protected PasswordEncoder passwordEncoder;
     protected AuthenticationProvider authenticationProvider;
-    protected JwtUtils jwtUtils;
+    protected SecuriteUtils securiteUtils;
 
     @Autowired
-    public AuthController(UtilisateurDao utilisateurDao, PasswordEncoder passwordEncoder, AuthenticationProvider authenticationProvider, JwtUtils jwtUtils) {
+    public AuthController(UtilisateurDao utilisateurDao, PasswordEncoder passwordEncoder, AuthenticationProvider authenticationProvider, SecuriteUtils securiteUtils) {
         this.utilisateurDao = utilisateurDao;
         this.passwordEncoder = passwordEncoder;
         this.authenticationProvider = authenticationProvider;
-        this.jwtUtils = jwtUtils;
+        this.securiteUtils = securiteUtils;
 
     }
 
@@ -51,7 +51,7 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(
                             utilisateur.getEmail(),
                             utilisateur.getPassword())).getPrincipal();
-            return new ResponseEntity<>(jwtUtils.generateToken(userDetails), HttpStatus.OK);
+            return new ResponseEntity<>(securiteUtils.generateToken(userDetails), HttpStatus.OK);
         } catch (AuthenticationException e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
