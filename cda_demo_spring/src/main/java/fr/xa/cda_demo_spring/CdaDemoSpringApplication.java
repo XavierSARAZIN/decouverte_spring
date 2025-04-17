@@ -25,5 +25,6 @@ public class CdaDemoSpringApplication {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+    
 }
 
