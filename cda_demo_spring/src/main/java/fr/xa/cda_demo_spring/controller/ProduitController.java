@@ -4,8 +4,8 @@ import fr.xa.cda_demo_spring.dao.ProduitDao;
 import fr.xa.cda_demo_spring.model.Etat;
 import fr.xa.cda_demo_spring.model.Produit;
 import fr.xa.cda_demo_spring.security.AppUserDetails;
+import fr.xa.cda_demo_spring.security.ISecuriteUtils;
 import fr.xa.cda_demo_spring.security.IsUtilisateur;
-import fr.xa.cda_demo_spring.security.SecuriteUtils;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,10 +22,10 @@ public class ProduitController {
 
 
     protected ProduitDao produitDao;
-    protected SecuriteUtils securiteUtils;
+    protected ISecuriteUtils securiteUtils;
 
     @Autowired
-    public ProduitController(ProduitDao produitDao, SecuriteUtils securiteUtils) {
+    public ProduitController(ProduitDao produitDao, ISecuriteUtils securiteUtils) {
         this.produitDao = produitDao;
         this.securiteUtils = securiteUtils;
     }
